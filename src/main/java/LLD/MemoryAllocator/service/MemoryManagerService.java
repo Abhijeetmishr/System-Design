@@ -89,18 +89,20 @@ public class MemoryManagerService {
     return;
    }
    
-//    public void inspect(String processId){
-//         ArrayList<InspectRes> list = new ArrayList<>();
-//         for(int i = 0; i < 100; i++) {
-//             if(memoryManager[i] == null) continue;
-//             else if(memoryManager[i].getProcessId().equals(processId)) {
-//                 String taskId = memoryManager[i].getTaskId();
-//                 while(memoryManager[i].getTaskId())
-//                list.add(new InspectRes(processId, memoryManager[i].getTaskId(), ));
-//             }
-//         }
-//         for(int i = 0; i < list.size(); i++) {
+   /**
+    public void inspect(String processId){
+        ArrayList<InspectRes> list = new ArrayList<>();
+        for(int i = 0; i < 100; i++) {
+            if(memoryManager[i] == null) continue;
+            else if(memoryManager[i].getProcessId().equals(processId)) {
+                String taskId = memoryManager[i].getTaskId();
+                while(memoryManager[i].getTaskId())
+               list.add(new InspectRes(processId, memoryManager[i].getTaskId(), ));
+            }
+        }
+        for(int i = 0; i < list.size(); i++) {
 
-//         }
-//    }
+        }
+   }
+   */
 }
