@@ -7,21 +7,21 @@ import java.util.Queue;
 
 public class WordLadder {
 
-    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        if(!wordList.contains(endWord))
-            return 0;
-        HashSet<String> vis = new HashSet<>();
-        Queue<String> q = new LinkedList<>();
-        q.add(beginWord);
-        vis.add(beginWord);
+    // public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+    //     if(!wordList.contains(endWord))
+    //         return 0;
+    //     HashSet<String> vis = new HashSet<>();
+    //     Queue<String> q = new LinkedList<>();
+    //     q.add(beginWord);
+    //     vis.add(beginWord);
 
-        while(!q.isEmpty()){
-            int size = q.size();
+    //     while(!q.isEmpty()){
+    //         int size = q.size();
 
-            for()
-        }
+    //         for()
+    //     }
 
 
-        return -1;
-    }
+    //     return -1;
+    // }
 }
