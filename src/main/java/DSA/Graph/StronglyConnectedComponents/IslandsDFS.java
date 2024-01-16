@@ -1,8 +1,8 @@
 package DSA.Graph.StronglyConnectedComponents;
 
 public class IslandsDFS {
-     // Function to find the number of islands.
-     public int numIslands(char[][] grid) {
+    // Function to find the number of islands.
+    public int numIslands(char[][] grid) {
         // Code here
         if(grid == null || grid.length == 0) {
             return 0;
