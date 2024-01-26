@@ -10,7 +10,7 @@ public class Snake{
   private LinkedList<int[]> positions;
   private boolean grow;
 
-   public Snake(int newlength, int x, int y, String newdirection){
+  public Snake(int newlength, int x, int y, String newdirection){
     modifyLength(newlength);
     this.positions = new LinkedList<int[]>();
     setDirection(newdirection);
@@ -97,13 +97,12 @@ public class Snake{
         newHead[0]++;
     }
 
-   
     positions.addFirst(newHead);
     if (grow) {
       grow = false; 
-  } else {
-      positions.removeLast();
-  }
+    } else {
+        positions.removeLast();
+    }
     return true; 
   }
 
