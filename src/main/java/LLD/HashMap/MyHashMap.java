@@ -1,4 +1,6 @@
 package LLD.HashMap;
+
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class MyHashMap<K,V> { 
     private static final int INITIAL_SIZE = 1 << 4; //16
     private static final int MAXIMUM_CAPACITY = 1 << 30;
@@ -23,6 +25,7 @@ public class MyHashMap<K,V> {
         return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
     }
 
+    @SuppressWarnings("hiding")
     class Entry<K,V> {
         K key;
         V value;
@@ -50,7 +53,7 @@ public class MyHashMap<K,V> {
         }
 
     }
-    
+   
     public void put(K key, V value) {
         int hashcode = key.hashCode() % hashtable.length;
         Entry node = hashtable[hashcode];

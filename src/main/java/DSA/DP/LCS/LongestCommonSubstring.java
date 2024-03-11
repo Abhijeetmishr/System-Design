@@ -1,51 +1,44 @@
 package DSA.DP.LCS;
+import java.util.*;
 
-/**
- * Longest Palindromic Substring
- */
-public class LongestCommonSubstring {
-    public String longestPalindrome(String str) {
-        if(str.length() <= 1) return str;
+class LongestCommonSubstring{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while(t>0){
+            String s1 = sc.next();
+            String s2 = sc.next();
+            System.out.println(longestCommonSubstring(s1,s2));
+            t--;
+        }
+        sc.close();
+    }
 
-        String LPS = "";
+    static int longestCommonSubstring(String s1, String s2){
+        int n = s1.length();
+        int m = s2.length();
 
-        for(int i = 1; i < str.length(); i++){
+        int[][] dp = new int[n+1][m+1];
 
-            //consider odd length
-            int low = i;
-            int high = i;
-
-            if(str.charAt(low) == str.charAt(high)){
-                low--;
-                high++;
-
-                if(low == -1 || high == str.length()){
-                    break;
+        for(int i = 0; i <= n; i++){
+            for(int j = 0; j <= m; j++){
+                if(i == 0 || j == 0){
+                    dp[i][j] = 0;
+                } else if(s1.charAt(i-1) == s2.charAt(j-1)){
+                    dp[i][j] = 1 + dp[i-1][j-1];
+                } else {
+                    dp[i][j] = 0;
                 }
-            }
-
-            String palindrome = str.substring(low+1, high);
-            if(palindrome.length() > LPS.length()){
-                LPS = palindrome;
-            }
-
-            //Consider even length
-            low = i-1;
-            high = i;
-            if(str.charAt(low) == str.charAt(high)){
-                low--;
-                high++;
-
-                if(low == -1 || high == str.length()){
-                    break;
-                }
-            }
-
-            palindrome = str.substring(low+1, high);
-            if(palindrome.length() > LPS.length()){
-                LPS = palindrome;
             }
         }
-        return LPS;
+
+        int max = Integer.MIN_VALUE;
+        for(int i = 0; i <= n; i++){
+            for(int j = 0; j <= m; j++){
+                max = Math.max(dp[i][j], max);
+            }
+        }
+        
+        return max;
     }
 }

@@ -7,7 +7,8 @@ public class KahnsAlgo {
         Arrays.fill(degree, 0);
         for(int i = 0; i < adj.size(); i++){
             for(int j = 0; j < adj.get(i).size(); i++){
-                degree[adj.get(i).get(j)] = degree[adj.get(i).get(j)] + 1;
+                int v = adj.get(i).get(j);
+                degree[v]++;
             }
         }
         Queue<Integer> q = new LinkedList<>();

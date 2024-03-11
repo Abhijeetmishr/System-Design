@@ -7,16 +7,16 @@ class Majority {
     public int majorityElement(int[] nums) {
         //Based on Moore's Voting algorithm
         int count = 1;
-        int res = 0;
+        int candidate = 0;
         for(int i = 1; i < nums.length; i++) {
-            if(nums[res] == nums[i]) {
+            if(nums[candidate] == nums[i]) {
                 count++;
                 
             } else {
                 count--;
             }
             if(count == 0) {
-                res = i;
+                candidate = i;
                 count = 1;
             }
         }
@@ -24,11 +24,11 @@ class Majority {
         count = 0;
 
         for(int i = 0; i < nums.length; i++) {
-            if(nums[res] == nums[i]) {
+            if(nums[candidate] == nums[i]) {
                 count++;
             }
         }
         if(count <= nums.length/2) return -1;
-        return nums[res];
+        return nums[candidate];
     }
 }

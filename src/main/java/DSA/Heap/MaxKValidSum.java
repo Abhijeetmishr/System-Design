@@ -1,6 +1,9 @@
 package DSA.Heap;
 import java.util.*;
     
+/**
+ * https://www.geeksforgeeks.org/k-maximum-sum-combinations-two-arrays/
+ */
 class MaxKValidSum {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
@@ -61,26 +64,51 @@ class MaxKValidSum {
     }
 
     public static class Pair {
-        int l;
-        int m;
-        public Pair(int l, int m){
+ 
+        public Pair(int l, int m)
+        {
             this.l = l;
             this.m = m;
+        }
+ 
+        int l;
+        int m;
+ 
+        @Override public boolean equals(Object o)
+        {
+            if (o == null) {
+                return false;
+            }
+            if (!(o instanceof Pair)) {
+                return false;
+            }
+            Pair obj = (Pair)o;
+            return (l == obj.l && m == obj.m);
+        }
+ 
+        @Override public int hashCode()
+        {
+            return Objects.hash(l, m);
         }
     }
-
-    public static class PairSum implements Comparable<PairSum>{
-        int l;
-        int m;
-        int sum;
-        public PairSum(int l, int m, int sum){
+ 
+    public static class PairSum
+        implements Comparable<PairSum> {
+ 
+        public PairSum(int l, int m, int sum)
+        {
+            this.sum = sum;
             this.l = l;
             this.m = m;
-            this.sum = sum;
         }
-        @Override
-        public int compareTo(PairSum other){
-            return Integer.compare(other.sum, sum);
+ 
+        int sum;
+        int l;
+        int m;
+ 
+        @Override public int compareTo(PairSum o)
+        {
+            return Integer.compare(o.sum, sum);
         }
     }
 }
