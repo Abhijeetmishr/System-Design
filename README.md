@@ -21,3 +21,6 @@
   2. SOLID Principles
   3. Design Patterns
   4. Common Problems
+
+## HLD 
+- `https://www.hellointerview.com/learn/system-design/in-a-hurry/introduction`
