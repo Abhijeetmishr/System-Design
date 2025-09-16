@@ -1,6 +1,7 @@
 package DSA.Stack;
 import java.util.*;
 
+// Increaing Monotonic Stack
 public class DailyTemperature {
     public int[] dailyTemperatures(int[] temp) {
         int n = temp.length;
