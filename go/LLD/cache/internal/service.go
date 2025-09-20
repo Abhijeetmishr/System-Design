@@ -32,10 +32,10 @@ func (c *cacheService) Get(key string) (string, error) {
 // Set implements CacheService.
 func (c *cacheService) Set(key string, value string) error {
 	err := c.repo.Set(key, value)
-	if err != nil && err.Error() == "memory limit exceeded" {
+	it := c.repo.(*cacheRepository).mem
+	if err == nil && len(it) >= 2 {
 		cacheEvictionStrategy := c.factory.GetEvictionStrategy("LRU")
-		cacheEvictionStrategy.Evict(c.repo.(*cacheRepository).mem)
-		return c.repo.Set(key, value)
+		cacheEvictionStrategy.Evict(it)
 	}
 	return err
 }

@@ -25,13 +25,11 @@ func (l *LRUStrategy) Evict(mem map[string]CacheItem) error {
 	if len(mem) == 0 {
 		return nil
 	}
-	oldestTime := time.Now()
-	oldestKey := ""
+
 	for k, v := range mem {
-		if v.LastUsedTime.Before(oldestTime) {
-			oldestTime = v.LastUsedTime
-			oldestKey = k
-			delete(mem, oldestKey)
+		if v.LastUsedTime.Before(time.Now()) {
+			delete(mem, k)
+			break
 		}
 	}
 
