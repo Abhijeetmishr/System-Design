@@ -48,6 +48,10 @@ func (r *paymentRepository) CreateTransaction(txnID string, amount float64, paym
 	}
 
 	r.mem.Store(txnID, transaction)
+
+	// Notify observers of transaction creation
+	r.notificationSystem.NotifyObservers(transaction)
+
 	return nil
 }
 
